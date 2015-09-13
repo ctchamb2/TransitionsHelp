@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@android:color/holo_green_light"
+    tools:context=".MainActivity">
+
+    <!-- you should put the text in strings, use styles, and all that good stuff.
+     Since this app is only focusing on transitions framework, i'm not bothering -->
+    <TextView
+        android:id="@+id/transitions_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="This app is an app that does app-like things. Feel free to use this app to do app-like things in the future. This is a header for this app-like app"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transitions_header"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/bg_rounded_green"
+        android:padding="16dp">
+
+        <!-- initially hidden-->
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_desc"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="YOU SHALL NOT PASS"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/tv_error_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rl_gibberish_content"
+            android:layout_marginTop="8dp"
+            android:text="(until you insert the correct gibberish: &quot;kittens&quot;)"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="invisible"/>
+        <RelativeLayout
+            android:id="@+id/rl_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rl_gibberish_content"
+            android:gravity="center_horizontal"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/iv_loading"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignTop="@+id/tv_loading"
+                android:layout_alignBottom="@+id/tv_loading"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/cat" />
+
+            <TextView
+                android:id="@+id/tv_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_loading"
+                android:textColor="@android:color/white"
+                android:text="Simulating loading..."/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/layout_header"
+            android:textColor="@android:color/white" />
+
+        <!-- initially shown. be smart about your layout design for animation (notice
+        we are below the ERROR which will slide down (sliding the layout down as well)) -->
+        <RelativeLayout
+            android:id="@+id/rl_gibberish_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_error" >
+
+            <EditText
+                android:id="@+id/et_gibberish"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/btn_submit"
+                android:hint="Please enter some gibberish"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:singleLine="true"/>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/et_gibberish"
+                android:layout_alignBottom="@+id/et_gibberish"
+                android:text="SUBMIT"
+                android:textSize="12sp"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

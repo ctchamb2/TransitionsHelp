@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Transitions Help</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="layout_header">This app is exclusively for people who like app-like apps. DO NOT USE THIS APP IF YOU DO NOT LIKE APP-LIKE APPS. Please insert some gibberish to test the rest of the app."</string>
+</resources>
